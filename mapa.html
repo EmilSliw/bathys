@@ -9,11 +9,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
     />
     <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="mapa.css" />
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="responsive-mapa.css" />
     <link rel="icon" type="image/png" href="icon.png" />
   </head>
@@ -22,7 +29,7 @@
     <header>
       <a href="index.html" class="logo">Bath<span>ys</span></a>
       <div class="header-right">
-        <span class="header-tag">🗺️ Interaktywna mapa</span>
+        <span class="header-tag">Interaktywna mapa</span>
         <a href="wybor.html" class="header-back">← Wróć do wyboru</a>
       </div>
     </header>
@@ -53,15 +60,93 @@
           </div>
           <button id="search-btn">Szukaj na mapie</button>
 
+          <div
+            class="history-section"
+            id="history-section"
+            style="display: none"
+          >
+            <p class="section-label">Ostatnie wyszukiwania</p>
+            <div id="history-list"></div>
+          </div>
+
+          <button id="clear-btn">Wyczyść mapę</button>
+
+          <button id="csv-btn">⬇ Pobierz CSV</button>
+
           <div class="toggle-section">
             <p class="section-label">Widok mapy</p>
             <div class="toggle-wrapper">
-              <button class="toggle-btn active" id="btn-punkty">
-                Punkty
-              </button>
+              <button class="toggle-btn active" id="btn-punkty">Punkty</button>
               <button class="toggle-btn" id="btn-heatmapa">Heatmapa</button>
+              <button class="toggle-btn" id="btn-timeline">Timeline</button>
             </div>
           </div>
+        </div>
+
+        
+
+        <!-- ANIMACJA CZASOWA -->
+        <div
+          class="timeline-section"
+          id="timeline-section"
+          style="display: none"
+        >
+          <p class="section-label">Animacja czasowa</p>
+          <div class="timeline-controls">
+            <button id="timeline-play" title="Play">▶</button>
+            <button id="timeline-stop" title="Stop">■</button>
+          </div>
+          <div class="timeline-slider-wrapper">
+            <span id="timeline-year-label" class="timeline-year">—</span>
+            <input
+              type="range"
+              id="timeline-slider"
+              min="1900"
+              max="2025"
+              value="2025"
+              step="1"
+            />
+          </div>
+          <div class="timeline-range">
+            <span id="timeline-min">—</span>
+            <span id="timeline-max">—</span>
+          </div>
+          <p class="timeline-count" id="timeline-count"></p>
+        </div>
+
+        <!-- PORÓWNANIE -->
+        <div class="compare-section">
+          <p class="section-label">Porównaj gatunki</p>
+          <div class="compare-input-wrapper">
+            <span
+              class="compare-dot"
+              style="background: rgb(47, 156, 153)"
+            ></span>
+            <input
+              type="text"
+              id="compare-input-1"
+              placeholder="Gatunek 1 np. Delphinus"
+            />
+          </div>
+          <div class="compare-input-wrapper">
+            <span
+              class="compare-dot"
+              style="background: rgb(255, 140, 0)"
+            ></span>
+            <input
+              type="text"
+              id="compare-input-2"
+              placeholder="Gatunek 2 np. Carcharodon"
+            />
+          </div>
+          <button id="compare-btn">Porównaj na mapie</button>
+          <button id="compare-clear-btn">Wyczyść porównanie</button>
+        </div>
+
+        <!-- LEGENDA -->
+        <div class="legend-section" id="legend-section" style="display: none">
+          <p class="section-label">Legenda</p>
+          <div class="legend-list" id="legend-list"></div>
         </div>
 
         <!-- FILTRY -->
@@ -100,6 +185,7 @@
         <!-- WYNIKI -->
         <div class="results-section">
           <p id="results-count"></p>
+          <p id="visible-count"></p>
           <div id="results-list"></div>
         </div>
       </aside>
@@ -109,11 +195,13 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="mapa.js"></script>
+    <script src="transitions.js"></script>
     <script>
       lucide.createIcons();
     </script>
-    <script src="transitions.js"></script>
   </body>
 </html>
