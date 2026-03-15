@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathys - Strefy oceaniczne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="strefy.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="responsive-strefy.css">
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">Bath<span>ys</span></a>
+    <div class="header-right">
+        <span class="header-tag">🌊 Strefy oceaniczne</span>
+        <a href="wybor.html" class="header-back">← Wróć do wyboru</a>
+    </div>
+</header>
+
+<!-- GŁÓWNY UKŁAD -->
+<div class="main-layout">
+
+    <!-- PRZEKRÓJ OCEANU -->
+    <div class="ocean-section">
+        <div class="ocean-title">
+            <p class="section-label">Przekrój oceanu</p>
+            <p class="ocean-hint">Kliknij strefę aby zobaczyć szczegóły</p>
+        </div>
+
+        <div class="ocean-visual">
+
+            <!-- Słońce i powierzchnia -->
+            <div class="ocean-surface">
+                <div class="sun">☀️</div>
+                <div class="surface-line"></div>
+                <span class="surface-label">Poziom morza — 0 m</span>
+            </div>
+
+            <!-- Strefy -->
+            <div class="zone-stack">
+
+                <div class="zone-band" data-zone="epipelagial">
+                    <div class="zone-band-inner">
+                        <div class="zone-band-info">
+                            <span class="zone-band-name">Epipelagial</span>
+                            <span class="zone-band-depth">0 – 200 m</span>
+                        </div>
+                        <div class="zone-band-creatures">🐬 🐟 🦈</div>
+                    </div>
+                </div>
+
+                <div class="zone-band" data-zone="mezopelagial">
+                    <div class="zone-band-inner">
+                        <div class="zone-band-info">
+                            <span class="zone-band-name">Mezopelagial</span>
+                            <span class="zone-band-depth">200 – 1 000 m</span>
+                        </div>
+                        <div class="zone-band-creatures">🦑 🐙</div>
+                    </div>
+                </div>
+
+                <div class="zone-band" data-zone="batypelagial">
+                    <div class="zone-band-inner">
+                        <div class="zone-band-info">
+                            <span class="zone-band-name">Batypelagial</span>
+                            <span class="zone-band-depth">1 000 – 4 000 m</span>
+                        </div>
+                        <div class="zone-band-creatures">🐡 🦐</div>
+                    </div>
+                </div>
+
+                <div class="zone-band" data-zone="abysalpelagial">
+                    <div class="zone-band-inner">
+                        <div class="zone-band-info">
+                            <span class="zone-band-name">Abysalpelagial</span>
+                            <span class="zone-band-depth">4 000 – 6 000 m</span>
+                        </div>
+                        <div class="zone-band-creatures">🪼</div>
+                    </div>
+                </div>
+
+                <div class="zone-band" data-zone="hadalpelagial">
+                    <div class="zone-band-inner">
+                        <div class="zone-band-info">
+                            <span class="zone-band-name">Hadalpelagial</span>
+                            <span class="zone-band-depth">6 000 – 11 000 m</span>
+                        </div>
+                        <div class="zone-band-creatures">🦠</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Skala głębokości -->
+            <div class="depth-scale">
+                <span>0 m</span>
+                <span>200 m</span>
+                <span>1 000 m</span>
+                <span>4 000 m</span>
+                <span>6 000 m</span>
+                <span>11 000 m</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL INFORMACJI -->
+    <div class="info-panel">
+
+        <!-- Stan domyślny -->
+        <div class="info-default" id="info-default">
+            <div class="info-default-icon">🌊</div>
+            <h2>Wybierz strefę</h2>
+            <p>Kliknij jedną z pięciu stref na przekroju oceanu, aby dowiedzieć się więcej o tym świecie.</p>
+        </div>
+
+        <!-- Szczegóły strefy (ukryte domyślnie) -->
+        <div class="info-details" id="info-details">
+
+            <div class="info-zone-header">
+                <div class="info-zone-icon" id="info-icon">🌊</div>
+                <div>
+                    <p class="info-zone-label" id="info-label">Strefa</p>
+                    <h2 class="info-zone-name" id="info-name">Nazwa</h2>
+                    <p class="info-zone-depth" id="info-depth">0 – 0 m</p>
+                </div>
+            </div>
+
+            <p class="info-zone-desc" id="info-desc">Opis strefy.</p>
+
+            <!-- Parametry -->
+            <div class="info-params">
+                <p class="section-label">Parametry fizyczne</p>
+                <div class="params-grid">
+                    <div class="param-box">
+                        <div>
+                            <span class="param-value" id="param-temp">—</span>
+                            <span class="param-label">Temperatura</span>
+                        </div>
+                    </div>
+                    <div class="param-box">
+                        <div>
+                            <span class="param-value" id="param-pressure">—</span>
+                            <span class="param-label">Ciśnienie</span>
+                        </div>
+                    </div>
+                    <div class="param-box">
+                        <div>
+                            <span class="param-value" id="param-light">—</span>
+                            <span class="param-label">Światło</span>
+                        </div>
+                    </div>
+                    <div class="param-box">
+                        <div>
+                            <span class="param-value" id="param-oxygen">—</span>
+                            <span class="param-label">Tlen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gatunki -->
+            <div class="info-species">
+                <p class="section-label">Przykładowe gatunki</p>
+                <div class="species-list" id="species-list"></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="strefy.js"></script>
+<script>
+        lucide.createIcons();
+    </script>
+    <script src="transitions.js"></script>
+</body>
+</html>

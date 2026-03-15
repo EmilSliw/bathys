@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ocean: rgb(8, 53, 150);
+    --teal: rgb(47, 156, 153);
+    --dark: #0a2240;
+    --paper: rgb(245, 245, 245);
+    --muted: rgb(75, 75, 75);
+    --sans: 'Josefin Sans', sans-serif;
+    --serif: 'DM Serif Display', serif;
+
+    /* Kolory stref */
+    --epi:  #1a6fa8;
+    --mezo: #0f4d8a;
+    --baty: #0a3466;
+    --abys: #061e42;
+    --hadal: #030d1f;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 7vh 1fr;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--sans);
+    animation: pageIn 0.4s ease forwards;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span { color: var(--teal); }
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header-back {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+}
+
+.header-back:hover { color: white; }
+
+.header-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+}
+
+/* GŁÓWNY UKŁAD */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* SEKCJA OCEANU */
+.ocean-section {
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.ocean-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+}
+
+.ocean-hint {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-family: var(--sans);
+}
+
+/* WIZUALIZACJA OCEANU */
+.ocean-visual {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    position: relative;
+}
+
+/* POWIERZCHNIA */
+.ocean-surface {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+}
+
+.sun { font-size: 1.5rem; }
+
+.surface-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, rgba(100, 200, 255, 0.6), transparent);
+}
+
+.surface-label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+}
+
+/* STOS STREF */
+.zone-stack {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 3px;
+    min-height: 0;
+}
+
+/* Wysokości stref proporcjonalne (skrócona skala logarytmiczna) */
+.zone-band[data-zone="epipelagial"]    { flex: 2; background: var(--epi); }
+.zone-band[data-zone="mezopelagial"]   { flex: 2.5; background: var(--mezo); }
+.zone-band[data-zone="batypelagial"]   { flex: 3; background: var(--baty); }
+.zone-band[data-zone="abysalpelagial"] { flex: 2; background: var(--abys); }
+.zone-band[data-zone="hadalpelagial"]  { flex: 1.5; background: var(--hadal); }
+
+.zone-band {
+    border-radius: 3px;
+    cursor: pointer;
+    transition: filter 0.2s, transform 0.15s;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.zone-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0);
+    transition: background 0.2s;
+}
+
+.zone-band:hover::before {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.zone-band:hover {
+    border-color: rgba(47, 156, 153, 0.5);
+    transform: scaleX(1.01);
+}
+
+.zone-band.active {
+    border-color: var(--teal);
+    box-shadow: 0 0 16px rgba(47, 156, 153, 0.3);
+}
+
+.zone-band-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    height: 100%;
+}
+
+.zone-band-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.zone-band-name {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: white;
+    font-style: italic;
+}
+
+.zone-band-depth {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.05em;
+}
+
+.zone-band-creatures {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.zone-band:hover .zone-band-creatures,
+.zone-band.active .zone-band-creatures {
+    opacity: 1;
+}
+
+/* SKALA GŁĘBOKOŚCI */
+.depth-scale {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 4rem;
+    bottom: 0;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+}
+
+.depth-scale span {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.25);
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* PANEL INFORMACJI */
+.info-panel {
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+/* STAN DOMYŚLNY */
+.info-default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 3rem;
+    text-align: center;
+    gap: 1rem;
+}
+
+.info-default-icon {
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+.info-default h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ocean);
+    opacity: 0.4;
+}
+
+.info-default p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    opacity: 0.6;
+    max-width: 280px;
+    line-height: 1.6;
+}
+
+/* SZCZEGÓŁY STREFY */
+.info-details {
+    display: none;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.info-details.visible {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.info-zone-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.info-zone-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-zone-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.25rem;
+}
+
+.info-zone-name {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: var(--ocean);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-style: italic;
+}
+
+.info-zone-depth {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+    font-family: var(--sans);
+}
+
+.info-zone-desc {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--muted);
+    border-left: 3px solid var(--teal);
+    padding-left: 1rem;
+}
+
+/* PARAMETRY */
+.info-params { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.params-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.param-box {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.param-icon { font-size: 1.25rem; }
+
+.param-value {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--ocean);
+    line-height: 1.2;
+}
+
+.param-label {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* GATUNKI */
+.info-species { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.species-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.species-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    transition: border-color 0.2s;
+}
+
+.species-item:hover {
+    border-color: var(--teal);
+}
+
+.species-emoji { font-size: 1.3rem; }
+
+.species-info { display: flex; flex-direction: column; gap: 0.1rem; }
+
+.species-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ocean);
+    font-style: italic;
+}
+
+.species-common {
+    font-size: 0.72rem;
+    color: var(--muted);
+}

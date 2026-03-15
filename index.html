@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathys - odkryj głębie</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="landing-header">
+            <h1 class="logo">Bath<span>ys</span></h1>
+
+        <nav id="landing-nav">
+            <a class="a-nav-normal" href="#landing-main">O nas</a>
+            <a class="a-nav-normal" href="#landing-offer">Co oferujemy</a>
+            <a class="a-nav-next" href="#landing-next">Zanurz się</a>
+        </nav>
+    </header>
+
+    <!-- WPROWADZENIE -->
+
+    <div id="wrapper-left-right">
+        <section id="left-landing">
+            <p id="left-platform">Platforma danych morskich</p>
+
+            <h2 id="left-text">Dane oceaniczne,<br> <span class="left-for-you">specjalnie</span> dla <span class="left-for-you">Ciebie</span></h2>
+
+            <p id="left-about">Bathys przetwarza miliony rekordów z sond <br> batymetrycznych i przekształca je w czytelne <br> wizualizacje dla naukowców i inżynierów offshore. </p>
+
+            <a href="#landing-next"><button id="left-next-button">Wypróbuj Bathys</button></a>
+
+            <a id="left-read-more" href="#landing-main">Poczytaj o nas</a>
+        </section>
+
+        <section id="right-landing">
+            <div class="linie" id="linie"></div>
+
+            <div class="data-card">
+                <div class="data-card-label">
+                    <span class="pulse-dot"></span>Live monitoring
+                </div>
+                <div class="data-card-value">11 034m</div>
+                <div class="data-card-sub">Głębokość sondy #11 · Rów Mariański</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MAIN (O NAS) -->
+    <main id="landing-main">
+
+        <div id="left-main-about">
+            <h2 id="main-about-title">O nas</h2>
+
+            <p id="main-about-text">Bathys to interaktywna platforma stworzona z pasji do oceanów i fascynacji <br> tym, co kryje się w ich głębinach. Łączymy miliony rekordów naukowych z <br> intuicyjnymi wizualizacjami, aby każdy mógł odkryć bogactwo życia morskiego. <br> Nasze dane pochodzą z globalnej bazy OBIS, jednego z największych zbiorów <br> obserwacji organizmów oceanicznych na świecie. Wierzymy, że nauka o morzu <br> powinna być dostępna nie tylko dla badaczy, ale dla każdego, kto czuje głębię <br> oceanu. Bathys to miejsce, gdzie dane spotykają się z ciekawością, od stref <br>     przybrzeżnych po najciemniejsze rowy oceaniczne. Zanurz się razem z nami.</p>
+        </div>
+
+        <div id="right-main-about">
+            <div class="stat">
+                <span class="stat-number">100M+</span>
+                <span class="stat-label">rekordów w bazie OBIS</span>
+            </div>
+
+            <div class="stat">
+                <span class="stat-number">243k</span>
+                <span class="stat-label">gatunków morskich</span>
+            </div>
+
+            <div class="stat">
+                <span class="stat-number">1 200+</span>
+                <span class="stat-label">instytucji naukowych</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- CO OFERUJEMY -->
+    <section id="landing-offer">
+
+        <h2 id="offer-text">Co oferujemy</h2>
+
+        <div class="offer-grid">
+            <div class="offer-card offer-card-big">
+                <div class="offer-icon"><i data-lucide="map"></i></div>
+                <h3>Interaktywna mapa</h3>
+                <p>Eksploruj rozmieszczenie gatunków morskich na interaktywnej mapie opartej na danych OBIS. Kliknij dowolny punkt na oceanie i odkryj co tam żyje.</p>
+            </div>
+
+            <div class="offer-card offer-card-small">
+                <div class="offer-icon"><i data-lucide="bar-chart-2"></i></div>
+                <h3>Wizualizacje danych</h3>
+                <p>Przejrzyste wykresy pokazujące migracje i liczebność gatunków w czasie.</p>
+            </div>
+
+            <div class="offer-card offer-card-small">
+                <div class="offer-icon"><i data-lucide="waves"></i></div>
+                <h3>Strefy oceaniczne</h3>
+                <p>Poznaj pięć stref głębokości, od epipelagialu po hadal.</p>
+            </div>
+        </div>
+   
+    </section>
+
+    <!-- PRZEJDZ DALEJ -->
+    <section id="landing-next">
+        <h2 id="next-text"><span class="next-ready-explore">Gotów eksplorować?</span><br>
+        Ponad 100 milionów rekordów morskich<br> w jednym miejscu za darmo</h2>
+        <a href="wybor.html"><button id="next-button">Zanurz się</button></a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-left">
+            <h3 class="logo">Bath<span">ys</span></h3>
+            <p>Platforma danych morskich</p>
+        </div>
+
+        <div class="footer-mid">
+            <a href="#landing-main">O nas</a>
+            <a href="#landing-offer">Co oferujemy</a>
+            <a href="#landing-next">Zanurz się</a>
+        </div>
+
+        <div class="footer-right">
+            <p>© 2026 Bathys</p>
+            <p>Dane: <a href="https://obis.org" target="_blank">OBIS.org</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="transitions.js"></script>
+</body>
+</html>

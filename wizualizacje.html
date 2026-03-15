@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathys - Wizualizacje danych</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wizualizacje.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="responsive-wizualizacje.css">
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">Bath<span>ys</span></a>
+    <div class="header-right">
+        <span class="header-tag">📊 Wizualizacje danych</span>
+        <a href="wybor.html" class="header-back">← Wróć do wyboru</a>
+    </div>
+</header>
+
+<!-- GŁÓWNY UKŁAD -->
+<div class="main-layout">
+
+    <!-- PANEL BOCZNY -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Analiza danych</h2>
+            <p class="sidebar-sub">Dane z bazy OBIS · Ocean Biodiversity Information System</p>
+        </div>
+
+        <!-- WYSZUKIWARKA -->
+        <div class="search-section">
+            <p class="section-label">Szukaj gatunku</p>
+            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="np. Gadus, Octopus..."/>
+            </div>
+            <button id="search-btn">Generuj wykresy</button>
+        </div>
+
+        <!-- FILTRY -->
+        <div class="filters-section">
+            <p class="section-label">Filtry</p>
+            <div class="filter-group">
+                <label class="filter-label">Zakres lat</label>
+                <select class="filter-select" id="filter-year">
+                    <option value="10">Ostatnie 10 lat</option>
+                    <option value="20" selected>Ostatnie 20 lat</option>
+                    <option value="50">Ostatnie 50 lat</option>
+                    <option value="100">Wszystkie dane</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Limit rekordów</label>
+                <select class="filter-select" id="filter-limit">
+                    <option value="200">200 rekordów</option>
+                    <option value="500" selected>500 rekordów</option>
+                    <option value="1000">1000 rekordów</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- STATUS -->
+        <div class="status-section">
+            <p id="status-text">Wpisz nazwę gatunku i kliknij "Generuj wykresy".</p>
+        </div>
+
+        <!-- STATYSTYKI -->
+        <div class="stats-section">
+            <p class="section-label">Podsumowanie</p>
+            <div id="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-value" id="stat-total">—</span>
+                    <span class="stat-label">Rekordów</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="stat-species">—</span>
+                    <span class="stat-label">Gatunków</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="stat-depth">—</span>
+                    <span class="stat-label">Śr. głębokość</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="stat-years">—</span>
+                    <span class="stat-label">Lat danych</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- WYKRESY -->
+    <div class="charts-area">
+
+        <!-- Wiersz 1 -->
+        <div class="charts-row">
+            <div class="chart-card chart-wide">
+                <div class="chart-card-header">
+                    <h3>Obserwacje w czasie</h3>
+                    <span class="chart-sub">Liczba rekordów rocznie</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-line"></canvas>
+                    <div class="chart-empty" id="empty-line">Brak danych — wyszukaj gatunek</div>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <h3>Podział taksonomiczny</h3>
+                    <span class="chart-sub">Grupy systematyczne</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-pie"></canvas>
+                    <div class="chart-empty" id="empty-pie">Brak danych — wyszukaj gatunek</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wiersz 2 -->
+        <div class="charts-row">
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <h3>Top 10 gatunków</h3>
+                    <span class="chart-sub">Najczęściej obserwowane</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-bar"></canvas>
+                    <div class="chart-empty" id="empty-bar">Brak danych — wyszukaj gatunek</div>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <h3>Rozkład głębokości</h3>
+                    <span class="chart-sub">Heatmapa stref głębokości</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-depth"></canvas>
+                    <div class="chart-empty" id="empty-depth">Brak danych — wyszukaj gatunek</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="wizualizacje.js"></script>
+<script>
+    lucide.createIcons();
+</script>
+<script src="transitions.js"></script>
+</body>
+</html>

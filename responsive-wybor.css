@@ -1,0 +1,117 @@
+/* ============================================
+   RESPONSYWNOŚĆ — BATHYS wybor.html
+   Tablet: max-width 1024px
+   Telefon: max-width 768px
+   Mały telefon: max-width 480px
+   ============================================ */
+
+/* TABLET (max 1024px) */
+@media (max-width: 1024px) {
+
+    #select-main {
+        padding: 3rem 2rem;
+        gap: 2rem;
+    }
+
+    #select-main h2 {
+        font-size: 2.4rem;
+    }
+
+    #select-main-option-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .select-main-option {
+        padding: 1.75rem;
+    }
+}
+
+/* TELEFON (max 768px) */
+@media (max-width: 768px) {
+
+    #select-main {
+        padding: 6rem 1.5rem 3rem;
+        gap: 2rem;
+        justify-content: flex-start;
+        min-height: 100vh;
+    }
+
+    #select-main h2 {
+        font-size: 2rem;
+    }
+
+    /* Karty — jedna pod drugą */
+    #select-main-option-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .select-main-option {
+        padding: 1.5rem;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+
+    /* Ikona obok tekstu zamiast nad */
+    .select-main-option-icon {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+    }
+
+    .select-main-option h3 {
+        font-size: 1.2rem;
+    }
+
+    .select-main-option p {
+        font-size: 0.825rem;
+    }
+
+    /* Hover na telefonie bez translateY */
+    .select-main-option:hover {
+        transform: none;
+        border-color: rgb(47, 156, 153);
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+}
+
+/* MAŁY TELEFON (max 480px) */
+@media (max-width: 480px) {
+
+    #select-main h2 {
+        font-size: 1.6rem;
+    }
+
+    #select-main {
+        padding: 5rem 1rem 2rem;
+    }
+
+    .select-main-option {
+        padding: 1.25rem;
+    }
+
+    .select-main-option h3 {
+        font-size: 1.1rem;
+    }
+
+    .select-main-option p {
+        font-size: 0.8rem;
+    }
+}

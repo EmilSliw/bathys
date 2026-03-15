@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathys</title>
+    <link rel="stylesheet" href="wybor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="responsive-wybor.css">
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+    
+    <!-- HEADER -->
+    <header id="select-header">
+        <h1 class="logo">Bath<span>ys</span></h1>
+    </header>
+
+    <!-- MAIN -->
+    <main id="select-main">
+        <h2>Wybierz swoją ścieżkę <br> <em>Gdzie chcesz się zanurzyć?</em></h2>
+        
+        <div id="select-main-option-wrapper">
+    
+            <a href="mapa.html" class="select-main-option">
+                <div class="select-main-option-icon"><i data-lucide="map"></i></div>
+                <h3>Interaktywna mapa</h3>
+                <p>Eksploruj rozmieszczenie gatunków morskich na interaktywnej mapie opartej na danych OBIS.</p>
+            </a>
+
+            <a href="wizualizacje.html" class="select-main-option">
+                <div class="select-main-option-icon"><i data-lucide="bar-chart-2"></i></div>
+                <h3>Wizualizacje danych</h3>
+                <p>Przejrzyste wykresy pokazujące migracje i liczebność gatunków w czasie.</p>
+            </a>
+
+            <a href="strefy.html" class="select-main-option">
+                <div class="select-main-option-icon"><i data-lucide="waves"></i></div>
+                <h3>Strefy oceaniczne</h3>
+                <p>Poznaj pięć stref głębokości, od epipelagialu po hadal.</p>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <h3 class="logo">Bath<span">ys</span></h3>
+            <p>Platforma danych morskich</p>
+        </div>
+
+        <div class="footer-right">
+            <p>© 2026 Bathys</p>
+            <p>Dane: <a href="https://obis.org" target="_blank">OBIS.org</a></p>
+        </div>
+    </footer>
+    <script src="wybor.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="transitions.js"></script>
+</body>
+</html>

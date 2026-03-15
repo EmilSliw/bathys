@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathys - Interaktywna mapa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mapa.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="responsive-mapa.css">
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">Bath<span>ys</span></a>
+    <div class="header-right">
+        <span class="header-tag">🗺️ Interaktywna mapa</span>
+        <a href="wybor.html" class="header-back">← Wróć do wyboru</a>
+    </div>
+</header>
+
+<!-- GŁÓWNY UKŁAD -->
+<div class="main-layout">
+
+    <!-- PANEL BOCZNY -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Eksploruj gatunki</h2>
+            <p class="sidebar-sub">Dane z bazy OBIS · Ocean Biodiversity Information System</p>
+        </div>
+
+        <!-- WYSZUKIWARKA -->
+        <div class="search-section">
+            <p class="section-label">Szukaj gatunku</p>
+            <div class="search-input-wrapper">
+                <span class="search-icon"><i data-lucide="search" class="search-icon"></i></span>
+                <input type="text" id="search-input" placeholder="np. Balaenoptera, Octopus..."/>
+            </div>
+            <button id="search-btn">Szukaj na mapie</button>
+        </div>
+
+        <!-- FILTRY -->
+        <div class="filters-section">
+            <p class="section-label">Filtry</p>
+            <div class="filter-group">
+                <label class="filter-label">Region oceaniczny</label>
+                <select class="filter-select" id="filter-region">
+                    <option value="">Cały świat</option>
+                    <option value="arctic">Arktyka</option>
+                    <option value="north_atlantic">Atlantyk Północny</option>
+                    <option value="south_atlantic">Atlantyk Południowy</option>
+                    <option value="north_pacific">Pacyfik Północny</option>
+                    <option value="south_pacific">Pacyfik Południowy</option>
+                    <option value="indian">Ocean Indyjski</option>
+                    <option value="mediterranean">Morze Śródziemne</option>
+                    <option value="baltic">Morze Bałtyckie</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Limit wyników</label>
+                <select class="filter-select" id="filter-limit">
+                    <option value="50">50 rekordów</option>
+                    <option value="100" selected>100 rekordów</option>
+                    <option value="250">250 rekordów</option>
+                    <option value="500">500 rekordów</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- STATUS -->
+        <div class="status-section">
+            <p id="status-text">Wpisz nazwę gatunku i kliknij "Szukaj".</p>
+        </div>
+
+        <!-- WYNIKI -->
+        <div class="results-section">
+            <p id="results-count"></p>
+            <div id="results-list"></div>
+        </div>
+    </aside>
+
+    <!-- MAPA -->
+    <div id="map"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="mapa.js"></script>
+<script>
+        lucide.createIcons();
+</script>
+<script src="transitions.js"></script>
+</body>
+</html>

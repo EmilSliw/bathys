@@ -1,0 +1,269 @@
+/* ============================================
+   RESPONSYWNOŚĆ — BATHYS landing page
+   Tablet: max-width 1024px
+   Telefon: max-width 768px
+   Mały telefon: max-width 480px
+   ============================================ */
+
+/* TABLET (max 1024px) */
+@media (max-width: 1024px) {
+
+    /* HERO */
+    #wrapper-left-right {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        min-height: 93vh;
+    }
+
+    #left-platform {
+        margin-left: 50px;
+        margin-top: 60px;
+    }
+
+    #left-text {
+        margin-left: 50px;
+        margin-top: 40px;
+        font-size: 2.4em;
+    }
+
+    #left-about {
+        margin-left: 50px;
+        margin-top: 40px;
+    }
+
+    #left-next-button {
+        margin-left: 50px;
+        margin-top: 40px;
+        padding: 20px 40px;
+    }
+
+    /* O NAS */
+    #landing-main {
+        height: auto;
+        min-height: 50vh;
+    }
+
+    #main-about-title {
+        margin-left: 50px;
+        font-size: 2.4em;
+    }
+
+    #main-about-text {
+        margin-left: 50px;
+        margin-right: 30px;
+    }
+
+    .stat {
+        margin-left: 5em;
+    }
+
+    /* CO OFERUJEMY */
+    #landing-offer {
+        padding: 4em 2em;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* TELEFON (max 768px) */
+@media (max-width: 768px) {
+
+    /* HEADER */
+    #landing-header {
+        padding: 0 1rem;
+    }
+
+    #landing-nav .a-nav-normal {
+        display: none; /* ukryj linki, zostaw tylko przycisk */
+    }
+
+    #landing-header .a-nav-next {
+        margin-right: 0;
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+
+    /* HERO — jedna kolumna */
+    #wrapper-left-right {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    #left-landing {
+        padding-bottom: 3rem;
+    }
+
+    #left-platform {
+        margin-left: 2rem;
+        margin-top: 3rem;
+    }
+
+    #left-text {
+        margin-left: 2rem;
+        margin-top: 1.5rem;
+        font-size: 2.2em;
+    }
+
+    #left-about {
+        margin-left: 2rem;
+        margin-top: 1.5rem;
+        margin-right: 2rem;
+    }
+
+    #left-next-button {
+        margin-left: 2rem;
+        margin-top: 2rem;
+        padding: 16px 32px;
+        display: inline-block;
+    }
+
+    #left-read-more {
+        margin-left: 1rem;
+    }
+
+    /* Ukryj prawą stronę hero na telefonie */
+    #right-landing {
+        display: none;
+    }
+
+    /* O NAS — jedna kolumna */
+    #landing-main {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    #left-main-about {
+        padding-bottom: 2rem;
+    }
+
+    #main-about-title {
+        margin-left: 2rem;
+        margin-top: 3rem;
+        font-size: 2.2em;
+    }
+
+    #main-about-text {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 1.5rem;
+    }
+
+    #right-main-about {
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .stat {
+        margin-left: 0;
+    }
+
+    /* CO OFERUJEMY — jedna kolumna */
+    #landing-offer {
+        padding: 3rem 1.5rem;
+    }
+
+    #offer-text {
+        margin-left: 1.5rem;
+        font-size: 2em;
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+
+    .offer-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .offer-card-big {
+        grid-row: auto;
+    }
+
+    .offer-card {
+        padding: 1.5rem;
+    }
+
+    /* PRZEJDŹ DALEJ */
+    #landing-next {
+        height: auto;
+        padding: 5rem 2rem;
+    }
+
+    #next-text {
+        font-size: 1.8em;
+    }
+
+    #next-button {
+        padding: 16px 32px;
+        margin-top: 2rem;
+    }
+
+    /* FOOTER — jedna kolumna */
+    footer {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+
+    .footer-mid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+/* MAŁY TELEFON (max 480px) */
+@media (max-width: 480px) {
+
+    #left-text {
+        font-size: 1.8em;
+        margin-left: 1.5rem;
+    }
+
+    #left-platform {
+        margin-left: 1.5rem;
+    }
+
+    #left-about {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        font-size: 0.9em;
+    }
+
+    #left-next-button {
+        margin-left: 1.5rem;
+        padding: 14px 28px;
+        font-size: 0.85rem;
+    }
+
+    #main-about-title {
+        margin-left: 1.5rem;
+        font-size: 1.8em;
+    }
+
+    #main-about-text {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        font-size: 0.9em;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    #next-text {
+        font-size: 1.5em;
+    }
+
+    .offer-card {
+        padding: 1.25rem;
+    }
+}

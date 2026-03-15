@@ -1,0 +1,530 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 7vh;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto auto auto auto;
+    margin: 0;
+    padding: 0;
+    animation: pageIn 0.4s ease forwards;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADER (index.html) */
+#landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    border-bottom: 1px solid gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; 
+    z-index: 1000;
+    background-color: rgba(245, 245, 245, 0.95);;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+#landing-header + * {
+    margin-top: 7vh;
+}
+
+.logo {
+    font-family: "Outfit", serif;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-left: 15px;
+    color: rgb(8, 53, 150);
+    background: none;
+    -webkit-text-fill-color: unset;
+    background-clip: text;
+}
+
+.logo span { 
+    color: rgb(47, 156, 153); 
+}
+
+#landing-nav {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+#landing-header .a-nav-normal {
+    text-decoration: none;
+    margin-right: 20px;
+    color: rgb(75, 75, 75);
+    font-family: 'Josefin Sans', sans-serif;
+    position: relative;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: text-shadow 0.3s ease
+}
+
+#landing-header .a-nav-normal:hover {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#landing-header .a-nav-normal::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: rgb(75, 75, 75);
+    transition: width 0.3s ease;
+}
+
+#landing-header .a-nav-normal:hover::after {
+    width: 100%;
+}
+
+#landing-header .a-nav-next {
+    background-color: rgb(8, 53, 150);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    margin-right: 20px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    align-self: center;
+}
+
+#landing-header .a-nav-next:hover {
+    background-color: #0044ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#landing-header .a-nav-next::after {
+    display: none;
+}
+
+/* WPROWADZENIE (index.html) */
+#wrapper-left-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 93vh;
+}
+
+#left-landing {
+    background-color: rgb(245, 245, 245);
+}
+
+#left-platform {
+    color: rgb(47, 156, 153);
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    margin-left: 100px;
+    margin-top: 100px;
+    font-size: 12px;
+}
+
+#left-text {
+    font-family: "DM Serif Display", serif;
+    color: rgb(8, 53, 150);
+    margin-left: 100px;
+    margin-top: 60px;
+    font-size: 3em;
+}
+
+.left-for-you {
+    color: rgb(47, 156, 153);
+    font-style: italic;
+}
+
+#left-about {
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(75, 75, 75);
+    margin-left: 100px;
+    margin-top: 60px;
+    font-size: 1em;
+}
+
+#left-next-button {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-left: 100px;
+    margin-top: 60px;
+    background-color: rgb(8, 53, 150);
+    border-radius: 6px;
+    border-style: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    align-self: center;
+    color: white !important;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#left-next-button:hover {
+    background-color: #0044ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#left-read-more {
+    color: rgb(75, 75, 75);
+    margin-left: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: color 0.3s ease;
+}
+
+#left-read-more:hover {
+    color: black;
+}
+
+#right-landing {
+    background-color: rgb(8, 53, 150);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linia {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.data-card {
+    background: rgba(255, 255, 255, 0.06); 
+    border: 1px solid rgba(255, 255, 255, 0.12); 
+    border-radius: 4px;
+    padding: 1.5rem 2rem;
+    color: white;
+    backdrop-filter: blur(8px); 
+    animation: float 6s ease-in-out infinite; 
+}
+
+.data-card-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.data-card-value {
+    font-family: "DM Serif Display", serif;
+    font-size: 2.2rem;
+    color: #e8c547; 
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.data-card-sub {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-12px); }
+}
+
+.pulse-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #e8c547; 
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* MAIN (O NAS) (index.html) */
+#landing-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 50vh;
+}
+
+#left-main-about {
+    background-color: rgb(245, 245, 245);
+}
+
+#main-about-title {
+    font-family: "DM Serif Display", serif;
+    color: rgb(8, 53, 150);
+    margin-left: 100px;
+    font-size: 3em;
+    margin-top: 60px;
+}
+
+#main-about-text {
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(75, 75, 75);
+    margin-left: 100px;
+    margin-top: 60px;
+    font-size: 1em;
+}
+
+#right-main-about {
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5em;
+    padding: 4em 5em;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    border-left: 2px solid  rgb(8, 53, 150); 
+    padding-left: 1.5em;
+    margin-left: 15em;
+}
+
+.stat-number {
+    font-family: "DM Serif Display", serif;
+    font-size: 2.5rem;
+    color: rgb(8, 53, 150);
+    line-height: 1;
+}
+
+.stat-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgb(75, 75, 75);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* CO OFERUJEMY (index.html) */
+#landing-offer {
+    padding: 5em 4em;
+    background-color: rgb(245, 245, 245);
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.5em;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.offer-card {
+    background: white;
+    border-radius: 4px;
+    padding: 2.5em;
+    border: 1px solid rgba(13, 17, 23, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.offer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(8, 53, 150, 0.1);
+}
+
+.offer-card-big {
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.offer-icon {
+    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    background: rgb(8, 53, 150);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offer-card h3 {
+    font-family: "DM Serif Display", serif;
+    font-size: 1.4rem;
+    color: rgb(8, 53, 150);
+}
+
+.offer-card-big h3 {
+    font-size: 1.8rem;
+}
+
+#offer-text {
+    font-family: "DM Serif Display", serif;
+    color: rgb(8, 53, 150);
+    margin-left: 40px;
+    font-size: 3em;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.offer-card p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgb(75, 75, 75);
+}
+
+/* PRZEJDZ DALEJ (index.html) */
+#landing-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95vh;
+    background-color: rgb(245, 245, 245);
+}
+
+#next-text {
+    font-family: "DM Serif Display", serif;
+    color: rgb(8, 53, 150);
+    font-size: 2.5em;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 2.5rem;
+}
+
+.next-ready-explore {
+    color: rgb(47, 156, 153);
+    font-style: italic;
+}
+
+#next-button {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 60px;
+    background-color: rgb(8, 53, 150);
+    border-radius: 6px;
+    border-style: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    align-self: center;
+    color: white !important;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#next-button:hover {
+    background-color: #0044ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* FOOTER (OGÓŁ) */
+footer {
+    background: rgb(8, 53, 150);
+    padding: 1.5rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+.footer-left p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.5rem;
+}
+
+.footer-left .logo {
+    font-family: 'Outfit', serif;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-left: 0;
+    background: none;
+    -webkit-text-fill-color: white;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+}
+
+.footer-mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-mid a {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+}
+
+.footer-mid a:hover {
+    color: white;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.footer-right p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-right a {
+    color: rgb(47, 156, 153);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-right a:hover {
+    color: white;
+}
+
+.offer-icon i {
+    width: 20px;
+    height: 20px;
+    color: white;
+    stroke-width: 1.5;
+}
