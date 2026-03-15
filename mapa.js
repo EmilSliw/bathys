@@ -193,6 +193,13 @@ async function searchOBIS() {
     setStatus("Wpisz nazwę gatunku przed wyszukiwaniem.", false);
     return;
   }
+  
+  if (parseInt(limit) >= 5000) {
+    setStatus(
+      "Ładuję " + limit + " rekordów — może to potrwać chwilę...",
+      true,
+    );
+  }
 
   updateHistory(query);
 
@@ -278,6 +285,11 @@ document.getElementById("search-input").addEventListener("keypress", (e) => {
 document.getElementById("clear-btn").addEventListener("click", () => {
   markersLayer.clearLayers();
   if (heatLayer) map.removeLayer(heatLayer);
+  stopTimeline();
+  timelineLayer.clearLayers();
+  document.getElementById("timeline-section").style.display = "none";
+  document.getElementById("btn-timeline").classList.remove("active");
+  document.getElementById("btn-punkty").classList.add("active");
   currentData = [];
   document.getElementById("results-list").innerHTML = "";
   document.getElementById("results-count").textContent = "";
